@@ -1,75 +1,52 @@
-# Task Manager
+# Task Manager - Test de Recrutement
 
-Full-stack task management application developed as part of a technical recruitment assessment.
+Application web fullstack de gestion de tâches ("Task Manager") développée dans le cadre d'un test technique.
 
-## Backend
+## 🚀 Stack Technique
+* **Frontend Web** : React, Vite, TypeScript (TSX), Tailwind CSS
+* **Backend API** : Java Spring Boot, Spring Data JPA, Spring Security (JWT), MySQL
+* **Conteneurisation** : Docker & Docker Compose
+* **CI/CD** : GitHub Actions
 
-The backend is built with:
+---
 
-- Java 21
-- Spring Boot
-- Spring Security
-- Spring Data JPA
-- MySQL
-- JWT Authentication
-- Maven
+## 📂 Architecture du Projet
+```text
+task-manager-monorepo/
+├── backend/          # API REST Spring Boot (Java 21)
+├── frontend/         # Interface utilisateur React + Vite
+└── docker-compose.yml # Orchestration locale (MySQL + Services)
 
-## Current Features
+🛠️ Instructions d'installation et d'exécution (Local)
+1. Prérequis
+Java JDK 21
 
-- User entity
-- Task entity
-- User/Task relationship
-- MySQL database integration
-- User registration
-- User login
-- Password hashing with BCrypt
-- JWT authentication
+Node.js (v18+)
 
-## Database Design
+Docker & Docker Compose
 
-The application uses two main entities:
+2. Lancer la base de données (MySQL)
 
-### User
+À la racine du projet, lance le conteneur MySQL via Docker Compose :
 
-- id
-- name
-- email
-- password
-- createdAt
-- updatedAt
+docker-compose up -d
 
-### Task
+3. Lancer le Backend (Spring Boot)Va dans le dossier backend et lance l'application :Bashcd backend
 
-- id
-- title
-- description
-- status
-- createdAt
-- updatedAt
-- user_id
+mvn spring-boot:run
 
-A user can own multiple tasks, while each task belongs to exactly one user.
+L'API démarre sur le port 8080.4. Lancer le Frontend (React)Dans un autre terminal, va dans le dossier frontend :Bashcd frontend
 
-## Authentication
+npm install
 
-Authentication is stateless and uses JSON Web Tokens (JWT).
+npm run dev
 
-Passwords are never stored in plain text. BCrypt is used to hash user passwords before persistence.
+L'application web s'ouvre sur http://localhost:5173.
 
-## API Endpoints
-
-### Authentication
-
-```http
-POST /api/auth/register
-POST /api/auth/login
-GET /api/tasks
-POST /api/tasks
-PUT /api/tasks/{id}
-DELETE /api/tasks/{id}
-
-```md
-- Secure task CRUD
-- Task ownership protection
-- Task filtering by status
-- Task search# task-manager-monorepo
+📌 Endpoints de l'API (Backend)
+POST /api/auth/register : Inscription d'un utilisateur  
+ POST /api/auth/login : Connexion et génération du token JWT[cite: 2]
+GET /api/tasks : Liste des tâches de l'utilisateur connecté[cite: 2]
+POST /api/tasks : Création d'une nouvelle tâche[cite: 2]
+PUT /api/tasks/{id} : Modification d'une tâche[cite: 2]
+DELETE /api/tasks/{id} : Suppression d'une tâche[cite: 2]
