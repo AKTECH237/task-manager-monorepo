@@ -50,3 +50,7 @@ GET /api/tasks : Liste des tâches de l'utilisateur connecté[cite: 2]
 POST /api/tasks : Création d'une nouvelle tâche[cite: 2]
 PUT /api/tasks/{id} : Modification d'une tâche[cite: 2]
 DELETE /api/tasks/{id} : Suppression d'une tâche[cite: 2]
+ 
+ lien deploiyer sur vercel frontend 
+ https://task-manager-frontend-eight-psi-78.vercel.app/
+ 
