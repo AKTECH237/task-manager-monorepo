@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout du code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # --- 1. BUILD & TEST BACKEND (Spring Boot) ---
       - name: ☕ Configurer Java 21
