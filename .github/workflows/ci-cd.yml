@@ -23,7 +23,7 @@ jobs:
 
       - name: ⚙️ Compiler et tester le Backend
         run: |
-          cd backend
+          cd task-manager-monorepo/backend
           mvn clean package -DskipTests
 
       # --- 2. BUILD FRONTEND (React) ---
@@ -34,13 +34,13 @@ jobs:
 
       - name: ⚙️ Installer et builder le Frontend
         run: |
-          cd frontend
+          cd task-manager-monorepo/frontend
           npm install
           npm run build
 
       # --- 3. TEST DE CONTENEURISATION (Docker) ---
       - name: 🐳 Valider le build Docker Backend
-        run: docker build -t task-backend:latest ./backend
+        run: docker build -t task-backend:latest ./task-manager-monorepo/backend
 
       - name: 🐳 Valider le build Docker Frontend
-        run: docker build -t task-frontend:latest ./frontend
+        run: docker build -t task-frontend:latest ./task-manager-monorepo/frontend
