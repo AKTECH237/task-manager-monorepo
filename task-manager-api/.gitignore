@@ -1,0 +1,51 @@
+HELP.md
+target/
+
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Environment / Secrets ###
+.env
+*.env
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Frontend ###
+node_modules/
+dist/
+build/
+
+### Docker ###
+docker-compose.override.yml
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
