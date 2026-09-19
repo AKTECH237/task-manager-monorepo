@@ -1,0 +1,30 @@
+services:
+  version: '3.8'
+
+  services:
+    mysql:
+      image: mysql:8.0
+      container_name: task_mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: rootpassword
+        MYSQL_DATABASE: task_manager
+      ports:
+        - "3306:3306"
+      volumes:
+        - mysql_data:/var/lib/mysql
+
+    backend:
+      build: ./backend-folder-path # Remplace par le chemin de ton backend
+      container_name: task_backend
+      ports:
+        - "8080:8080"
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/task_manager?useSSL=false&serverTimezone=UTC
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: rootpassword
+        SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      depends_on:
+        - mysql
+
+  volumes:
+    mysql_data:
